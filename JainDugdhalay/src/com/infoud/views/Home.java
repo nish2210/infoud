@@ -139,7 +139,8 @@ public class Home extends JFrame {
 		JPanel selCust = new JPanel();
 		selCust.setBorder(new EmptyBorder(10, 10, 10, 10));
 		selCust.setBounds(625, 65, 315, 250);
-		selCust.setBorder(new TitledBorder(null, "SELECT CUSTOMER",
+		selCust.setBorder(new TitledBorder(null,
+				StringConstants.SELECT_CUSTOMER_PANEL_TITLE,
 				TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		contentPane.add(selCust);
 		/*
@@ -154,7 +155,8 @@ public class Home extends JFrame {
 		JPanel addCust = new JPanel();
 		addCust.setBorder(new EmptyBorder(10, 10, 10, 10));
 		addCust.setBounds(625, 325, 315, 190);
-		addCust.setBorder(new TitledBorder(null, "ADD NEW CUSTOMER",
+		addCust.setBorder(new TitledBorder(null,
+				StringConstants.ADD_NEW_CUSTOMER_PANEL_TITLE,
 				TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		addCust.setLayout(new GridLayout(1, 2));
 		contentPane.add(addCust);
@@ -166,9 +168,11 @@ public class Home extends JFrame {
 		JPanel itemDetail = new JPanel();
 		itemDetail.setBorder(new EmptyBorder(10, 10, 10, 10));
 		itemDetail.setBounds(625, 520, 315, 70);
-		itemDetail.setBorder(new TitledBorder(null, "ITEM DETAILS",
-				TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		JButton viewItem = new JButton("ITEM LIST & PRICE");
+		itemDetail.setBorder(new TitledBorder(null,
+				StringConstants.ITEM_DETAILS_PANEL_TITLE, TitledBorder.LEADING,
+				TitledBorder.TOP, null, null));
+		JButton viewItem = new JButton(
+				StringConstants.ITEM_AND_LIST_PRICE_BUTTON_TEXT);
 		viewItem.setBounds(80, 10, 200, 25);
 		itemDetail.add(viewItem);
 		contentPane.add(itemDetail);
