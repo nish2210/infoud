@@ -9,21 +9,19 @@ import javax.swing.border.EmptyBorder;
 
 import com.infoud.constants.StringConstants;
 import com.infoud.controller.MainController;
-import com.infoud.model.OrderInfo;
 
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
 import javax.swing.JScrollPane;
-import java.awt.GridLayout;
 import java.util.List;
 
 @SuppressWarnings("serial")
 public class Home extends JFrame {
 
 	private JPanel contentPane;
-	private static int TOTAL_ORDER_INFO_COUNT = 10;
+	private static int TOTAL_ORDER_INFO_COUNT = 7;
 	private MainController controller = new MainController();
 	private List<Object> orders;
 
@@ -42,7 +40,7 @@ public class Home extends JFrame {
 
 	public Home() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 960, 600);
+		setBounds(50, 50, 960, 600);
 		setResizable(false);
 		setTitle(StringConstants.CLIENT_HEADER);
 		contentPane = new JPanel();
@@ -80,25 +78,26 @@ public class Home extends JFrame {
 		JPanel mainOrderPanel = new JPanel();
 		mainOrderPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
 		leftScrollPane.setViewportView(mainOrderPanel);
-		mainOrderPanel.setLayout(new GridLayout(TOTAL_ORDER_INFO_COUNT, 1, 10,
-				10));
-		mainOrderPanel.setPreferredSize(new Dimension(550,
-				TOTAL_ORDER_INFO_COUNT * 100));
+		mainOrderPanel.setLayout(null);
 
 		int i = 0;
 		OrderInfoPanel order = null;
 		while (i < TOTAL_ORDER_INFO_COUNT) {
-			
-			OrderInfo orderInfo = (OrderInfo) orders.get(i);
+
+			/* OrderInfo orderInfo = (OrderInfo) orders.get(i); */
 
 			order = new OrderInfoPanel();
-			order.setCustomerName(orderInfo.getCustomerName());
-			order.setOrderAmount(orderInfo.getAmount() + " Rs.");
-			order.setBorderTitle(orderInfo.getDateAndTimeOfDelivery()+"");
+			order.setCustomerName("Mr. Nayan Gohil " + (i + 1));
+			order.setOrderAmount((i + 1) * 10000 + " Rs.");
+			order.setBorderTitle("24/10 " + (i + 1) + ":00 PM");
+			order.setBounds(10, i * 150 + 10, 560, 140);
 			mainOrderPanel.add(order);
 
 			i++;
 		}
+
+		mainOrderPanel.setPreferredSize(new Dimension(550,
+				TOTAL_ORDER_INFO_COUNT * 150 + 20));
 
 	}
 
