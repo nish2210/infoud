@@ -8,7 +8,11 @@ import javax.swing.SwingConstants;
 @SuppressWarnings("serial")
 public class OrderInfoPanel extends JPanel {
 
-	private JLabel customerName = new JLabel("Mr. Nayan Gohil");
+	private JLabel customerName = new JLabel("Mr. Nishant Jethwa");
+	/* Start changes by Nishant J. */
+	private JLabel itemName[] = new JLabel[7];
+	private int ilabelSpace = 90, xbound = 10, ybound = 46, c = 0;
+	/* End changes by Nishant J. */
 	private JLabel orderAmount = new JLabel("20,000 Rs.");
 
 	public void setCustomerName(String customerName) {
@@ -24,17 +28,45 @@ public class OrderInfoPanel extends JPanel {
 				TitledBorder.TOP, null, null));
 	}
 
+	/* Start changes by Nishant J. */
+
+	public void setItemName(String[] itemName, String[] itemQuntity) {
+		for (int j = 0; j < this.itemName.length; j++) {
+			this.itemName[j]
+					.setText(itemName[j] + " - " + itemQuntity[j] + ";");
+		}
+	}
+
+	/* End changes by Nishant J. */
 	public OrderInfoPanel() {
 
 		setLayout(null);
 
 		// Position for customer name
-		customerName.setBounds(10, 21, 150, 20);
+		customerName.setBounds(10, 21, 160, 20);
 		add(customerName);
-		orderAmount.setHorizontalAlignment(SwingConstants.RIGHT);
 
+		/* Start changes by Nishant J. */
+		for (int j = 0; j < itemName.length; j++) {
+			itemName[j] = new JLabel("Item ");
+			if ((j + 1) % 6 != 0) {
+				xbound = 10 + (ilabelSpace * c);
+			} else {
+				c = 0;
+				xbound = 10 + (ilabelSpace * c);
+				ybound = ybound + 20;
+			}
+			// Position for Item List
+			itemName[j].setBounds(xbound, ybound, 95, 20);
+
+			add(itemName[j]);
+			c++;
+		}
+		/* End changes by Nishant J. */
+
+		orderAmount.setHorizontalAlignment(SwingConstants.RIGHT);
 		// Position for order amount
-		orderAmount.setBounds(465, 21, 75, 20);
+		orderAmount.setBounds(465, 21, 85, 20);
 		add(orderAmount);
 
 	}
